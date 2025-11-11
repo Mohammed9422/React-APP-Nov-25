@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+import Conditional from './Conditional';
+import Style from './Style';
+import Propdrill from './Propdrill';
 
+
+// Creating a simple functional component
+function Greeting() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <h1>Hello, welcome to React!</h1>
+  );
+}
+//Class Based Component
+class Greet extends React.Component {
+  render() {
+      return <h1>Hello, {this.props.name}!</h1>;
+}
 }
 
-export default App
+
+const App = () => {
+  let name = "Sohail";
+  let arrays = ["A", "B", "C", "D"];
+  return (
+    <div>
+      <h2>Hello {name}</h2>
+      <ul>
+        
+        {arrays.map((array,index)=>(
+          <li key={index}>{array}</li>
+        ))}
+
+      </ul>
+      <Greeting />
+      <Greet name="Ahmed" />
+      <Conditional />
+      < Style />
+      <Propdrill />
+    </div>
+  );
+};
+
+export default App;
